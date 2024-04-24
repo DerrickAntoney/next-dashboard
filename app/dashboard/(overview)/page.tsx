@@ -7,10 +7,16 @@ import { Suspense } from 'react';
 import CardWrapper from '@/app/ui/dashboard/cards';
 import { CardsSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
  
-export default async function Page() {
-
-  
-  
+export default async function Page({
+    searchParams,
+  }: {
+    searchParams?: {
+      query?: string;
+      page?: string;
+    };
+  }) {
+    const query = searchParams?.query || '';
+    const currentPage = Number(searchParams?.page) || 1;
 
   return (
     <main>
